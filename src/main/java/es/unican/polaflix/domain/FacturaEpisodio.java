@@ -1,10 +1,19 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class FacturaEpisodio implements Comparable<FacturaEpisodio>{
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private double precio;
+	@OneToOne
+	@JoinColumn(name="episodio_id")
 	private Episodio episodio;
+	@ManyToOne
+	@JoinColumn(name="factura_id")
 	private Factura factura;
 	private int day;
 	

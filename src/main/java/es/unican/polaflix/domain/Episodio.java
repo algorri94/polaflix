@@ -1,11 +1,18 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Episodio implements Comparable<Episodio>{
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String titulo;
 	private String descripcion;
 	private int numEpisodio;
+	@ManyToOne
+	@JoinColumn(name = "temporada_id")
 	private Temporada temporada;
 	
 	public Episodio(int id, String titulo, String descripcion, int numEpisodio){

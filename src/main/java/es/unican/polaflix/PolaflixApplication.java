@@ -1,4 +1,4 @@
-package es.unican;
+package es.unican.polaflix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

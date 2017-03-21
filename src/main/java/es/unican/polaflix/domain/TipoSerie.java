@@ -1,8 +1,13 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class TipoSerie {
 
-	private String id;
+	@Id
+	@GeneratedValue
+	private int id;
 	private String tipo;
 	private double precio;
 	
@@ -11,11 +16,11 @@ public class TipoSerie {
 		this.precio = precio;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -1,5 +1,9 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("NORMAL")
 public class UsuarioNormal extends Usuario{
 
 	public UsuarioNormal(String username, String password, String isban) {

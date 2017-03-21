@@ -1,7 +1,13 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
-public class Persona {
+import javax.persistence.*;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Persona {
+
+	@Id
+	@GeneratedValue
 	private int id;
 	private String nombre;
 	private String apellido;

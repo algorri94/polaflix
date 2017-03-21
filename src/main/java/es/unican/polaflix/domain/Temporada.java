@@ -1,13 +1,20 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
 import java.util.Set;
 import java.util.TreeSet;
+import javax.persistence.*;
 
+@Entity
 public class Temporada implements Comparable<Temporada>{
 
+	@Id
+	@GeneratedValue
 	private int id;
+	@ManyToOne
+	@JoinColumn(name = "serie_id")
 	private Serie serie;
 	private int numTemporada;
+	@OneToMany(mappedBy ="temporada")
 	private Set<Episodio> episodios;
 	
 	public Temporada(Serie serie, int numTemporada){

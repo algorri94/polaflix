@@ -1,13 +1,19 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
 import java.util.Set;
+import javax.persistence.*;
 
+@Entity
 public class Serie {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String titulo;
 	private String descripcion;
+	@OneToMany(mappedBy ="serie")
 	private Set<Temporada> temporadas;
+	@ManyToOne
 	private TipoSerie tipoSerie;
 	
 	public Serie (String titulo, String descripcion, TipoSerie tipoSerie){

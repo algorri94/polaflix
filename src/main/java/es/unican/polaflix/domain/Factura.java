@@ -1,14 +1,22 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+
+@Entity
 public class Factura implements Comparable<Factura>{
 	
+	@Id
+	@GeneratedValue
 	private int id;
 	private int mes;
 	private int year;
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	@OneToMany(mappedBy="factura")
 	private Set<FacturaEpisodio> episodios;
 	
 	public Factura(int mes, Usuario usuario){

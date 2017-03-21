@@ -1,5 +1,9 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("CUOTA")
 public class UsuarioCuota extends Usuario{
 	
 	private double cuota;

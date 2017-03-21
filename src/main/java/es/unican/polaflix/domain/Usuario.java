@@ -1,18 +1,28 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+import javax.persistence.*;
 
-public class Usuario {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipoUsuario", discriminatorType = DiscriminatorType.STRING)
+public abstract class Usuario {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String username;
 	private String password;
 	private String isban;
+	@ManyToMany
 	private Set<Serie> seriesTerminadas;
+	@ManyToMany
 	private Set<Serie> seriesPendientes;
+	@OneToMany(mappedBy="usuario")
 	private Set<Factura> facturas;
+	@OneToMany(mappedBy="usuario")
 	private Set<EpVisualizadoUsuario> seriesEmpezadas;
 	
 	public Usuario (String username, String password, String isban){

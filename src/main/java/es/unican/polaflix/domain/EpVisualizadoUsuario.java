@@ -1,13 +1,24 @@
-package es.unican.domain;
+package es.unican.polaflix.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
+@Entity
 public class EpVisualizadoUsuario {
 
+	@Id
+	@GeneratedValue
 	private int id;
+	@ManyToOne
 	private Serie serie;
+	@ManyToMany
+	@JoinTable(name="episodios_visualizados",
+		      joinColumns=@JoinColumn(name="ep_visualizado_usuario_id", referencedColumnName="id"),
+		      inverseJoinColumns=@JoinColumn(name="episodio_id", referencedColumnName="id"))
 	private Set<Episodio> episodiosVisualizados;
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
 	public EpVisualizadoUsuario(int id, Serie serie){
