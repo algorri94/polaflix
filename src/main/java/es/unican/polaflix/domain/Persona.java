@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="dtype", discriminatorType = DiscriminatorType.STRING)
 public abstract class Persona {
 
 	@Id
@@ -12,6 +13,7 @@ public abstract class Persona {
 	private String nombre;
 	private String apellido;
 	
+	public Persona(){}
 	public Persona (String nombre, String apellido){
 		this.nombre = nombre;
 		this.apellido = apellido;

@@ -8,6 +8,7 @@ public class UsuarioCuota extends Usuario{
 	
 	private double cuota;
 
+	public UsuarioCuota(){}
 	public UsuarioCuota(String username, String password, String isban, double cuota) {
 		super(username, password, isban);
 		this.cuota = cuota;

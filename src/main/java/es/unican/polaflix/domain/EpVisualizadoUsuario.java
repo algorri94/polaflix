@@ -21,6 +21,7 @@ public class EpVisualizadoUsuario {
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
+	public EpVisualizadoUsuario(){}
 	public EpVisualizadoUsuario(int id, Serie serie){
 		this.id = id;
 		this.serie = serie;
@@ -61,6 +62,10 @@ public class EpVisualizadoUsuario {
 	
 	public Set<Episodio> getEpisodiosVisualizados(){
 		return episodiosVisualizados;
+	}
+	
+	public void setEpisodiosVisualizados(Set<Episodio> eps){
+		episodiosVisualizados = eps;
 	}
 	
 	@Override

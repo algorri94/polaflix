@@ -25,6 +25,7 @@ public abstract class Usuario {
 	@OneToMany(mappedBy="usuario")
 	private Set<EpVisualizadoUsuario> seriesEmpezadas;
 	
+	public Usuario(){}
 	public Usuario (String username, String password, String isban){
 		this.username = username;
 		this.password = password;

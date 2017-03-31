@@ -19,6 +19,7 @@ public class Factura implements Comparable<Factura>{
 	@OneToMany(mappedBy="factura")
 	private Set<FacturaEpisodio> episodios;
 	
+	public Factura(){}
 	public Factura(int mes, Usuario usuario){
 		this.mes = mes;
 		this.usuario = usuario;

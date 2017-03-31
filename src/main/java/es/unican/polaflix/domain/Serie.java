@@ -1,5 +1,8 @@
 package es.unican.polaflix.domain;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -13,13 +16,18 @@ public class Serie {
 	private String descripcion;
 	@OneToMany(mappedBy ="serie")
 	private Set<Temporada> temporadas;
+	@ManyToMany
+	private List<Persona> artistas;
 	@ManyToOne
 	private TipoSerie tipoSerie;
 	
+	public Serie(){}
 	public Serie (String titulo, String descripcion, TipoSerie tipoSerie){
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.tipoSerie = tipoSerie;
+		temporadas = new HashSet<Temporada>();
+		artistas = new ArrayList<Persona>();
 	}
 
 	public int getId() {
@@ -64,6 +72,18 @@ public class Serie {
 	
 	public Set<Temporada> getTemporadas(){
 		return temporadas;
+	}
+	
+	public void addArtista(Persona persona){
+		artistas.add(persona);
+	}
+	
+	public boolean removeArtista(Persona persona){
+		return artistas.remove(persona);
+	}
+	
+	public List<Persona> getArtistas(){
+		return artistas;
 	}
 	
 	@Override

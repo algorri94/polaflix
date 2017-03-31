@@ -15,6 +15,7 @@ public class Episodio implements Comparable<Episodio>{
 	@JoinColumn(name = "temporada_id")
 	private Temporada temporada;
 	
+	public Episodio(){}
 	public Episodio(int id, String titulo, String descripcion, int numEpisodio){
 		this.id = id;
 		this.titulo = titulo;

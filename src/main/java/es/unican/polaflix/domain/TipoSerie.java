@@ -11,6 +11,7 @@ public class TipoSerie {
 	private String tipo;
 	private double precio;
 	
+	public TipoSerie(){}
 	public TipoSerie(String tipo, double precio){
 		this.tipo = tipo;
 		this.precio = precio;

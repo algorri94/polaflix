@@ -17,6 +17,7 @@ public class FacturaEpisodio implements Comparable<FacturaEpisodio>{
 	private Factura factura;
 	private int day;
 	
+	public FacturaEpisodio(){}
 	public FacturaEpisodio(double precio, Episodio episodio){
 		this.precio = precio;
 		this.episodio = episodio;
