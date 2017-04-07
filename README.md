@@ -3,6 +3,9 @@
 ## REST API
 ##### /series
 	GET: Obtiene la lista de todas las series
+		QueryParams:
+			- name: Obtiene las series que contengan el string recibido en su nombre
+			- initial: Obtiene las series que contengan la letra inicial recibida
 	PUT: Añade una serie
 ##### /series/{$name}
 	GET: Obtiene una serie cuyo nombre es $name
