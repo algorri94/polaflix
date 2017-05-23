@@ -18,8 +18,7 @@
 	PUT: Modifica el usuario
 	DELETE: Borra el usuario
 ##### /usuarios/{$username}/pendientes/{$id}
-	PUT: Añade la serie cuyo id es $id a la lista de series pendientes del usuario
-	DELETE: Borra una serie de la lista de series pendientes del usuario
+	POST: Añade la serie cuyo id es $id a la lista de series pendientes del usuario
 ##### /usuarios/{$username}/empezadas/{$id}
 	PUT: Añade la serie cuyo id es $id a la lista de series empezadas del usuario y registra
 	el episodio de la temporada recibida como visualizado. En caso de estar ya empezada, simplemente
