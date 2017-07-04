@@ -4,6 +4,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Temporada implements Comparable<Temporada>{
 
@@ -12,6 +14,7 @@ public class Temporada implements Comparable<Temporada>{
 	private int id;
 	@ManyToOne
 	@JoinColumn(name = "serie_id")
+	@JsonIgnore
 	private Serie serie;
 	private int numTemporada;
 	@OneToMany(mappedBy ="temporada")
@@ -48,16 +51,12 @@ public class Temporada implements Comparable<Temporada>{
 		this.numTemporada = numTemporada;
 	}
 	
-	public void addEpisodio(Episodio ep){
-		episodios.add(ep);
-	}
-	
-	public boolean removeEpisodio(Episodio ep){
-		return episodios.remove(ep);
-	}
-	
 	public Set<Episodio> getEpisodios(){
 		return episodios;
+	}
+	
+	public void setEpisodios(Set<Episodio> episodios){
+		this.episodios = episodios;
 	}
 	
 	@Override

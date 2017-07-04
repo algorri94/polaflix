@@ -62,28 +62,20 @@ public class Serie {
 		this.tipoSerie = tipoSerie;
 	}
 	
-	public void addTemporada(Temporada temporada){
-		temporadas.add(temporada);
-	}
-	
-	public boolean removeTemporada(Temporada temporada){
-		return temporadas.remove(temporada);
-	}
-	
 	public Set<Temporada> getTemporadas(){
 		return temporadas;
 	}
 	
-	public void addArtista(Persona persona){
-		artistas.add(persona);
-	}
-	
-	public boolean removeArtista(Persona persona){
-		return artistas.remove(persona);
+	public void setTemporadas(Set<Temporada> temporadas){
+		this.temporadas = temporadas;
 	}
 	
 	public List<Persona> getArtistas(){
 		return artistas;
+	}
+	
+	public void setArtistas(List<Persona> artistas){
+		this.artistas = artistas;
 	}
 	
 	@Override

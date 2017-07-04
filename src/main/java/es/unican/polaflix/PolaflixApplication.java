@@ -20,8 +20,8 @@ public class PolaflixApplication {
 	@Bean
 	public CommandLineRunner runner(SerieRepository sr){
 		return args -> {
-			List<Serie> series = sr.findSerieByName("a");
-			System.out.println(series);
+			//List<Serie> series = sr.findSerieByName("a");
+			//System.out.println(series);
 		};
 	}
 }

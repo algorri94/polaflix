@@ -1,0 +1,27 @@
+<div ng-controller="FacturaController as ctrl">
+	<div id="factura-header" class="title-header">
+		<a href="" ng-click="ctrl.previousMonth()"><i class="material-icons" style="font-size:36px">navigate_before</i></a>
+		<div id="mes" class="title">{{meses[mesActual]}} {{yrActual}}</div>
+		<a href="" ng-click="ctrl.nextMonth()"><i class="material-icons" style="font-size:36px">navigate_next</i></a>
+	</div>
+	<div id="episodios">
+		<table>
+			<tr>
+				<th>Fecha</th>
+				<th>Serie</th>
+				<th>Episodio</th>
+				<th>Precio</th>
+			</tr>
+			<tr ng-repeat="ep in facturaActual.episodios" ng-show="ctrl.hayFactura()">
+				<td>{{ctrl.formatNumber(ep.day)}}/{{ctrl.formatNumber(facturaActual.mes)}}/{{facturaActual.year}}</td>
+				<td>{{ep.serie}}</td>
+				<td>{{ep.numTemporada}}x{{ctrl.formatNumber(ep.numEpisodio)}}</td>
+				<td>{{ctrl.formatFloat(ep.precio)}}€</td>
+			</tr>
+			<tr class="footer">
+				<td colspan="3"><div class="total">Total</div></td>
+				<td>{{ctrl.formatFloat(total)}}€</td>
+			</tr>
+		</table>
+	</div>
+</div>

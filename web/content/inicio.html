@@ -1,0 +1,24 @@
+<div ng-controller="InicioController as ctrl">
+	<div id="empezadas" ng-show="dataLoaded && empezadas.length > 0">
+		<p>Empezadas</p>
+		<div class="lista-series" id="lista-empezadas">
+			<table><tr ng-repeat="s in empezadas"><td><a href="index.html#!/visualizar_temporada?id={{s.serie.id}}">{{s.serie.titulo}}</a></td></tr></table>
+		</div>
+	</div>
+	<div id="pendientes" ng-show="dataLoaded && pendientes.length > 0">
+		<p>Pendientes</p>
+		<div class="lista-series" id="lista-pendientes">
+			<table><tr ng-repeat="s in pendientes"><td><a href="index.html#!/visualizar_temporada?id={{s.id}}">{{s.titulo}}</a></td></tr></table>
+		</div>
+	</div>
+	<div id="terminadas" ng-show="dataLoaded && terminadas.length > 0">
+		<p>Terminadas</p>
+		<div class="lista-series" id="lista-terminadas">
+			<table><tr ng-repeat="s in terminadas"><td><a href="index.html#!/visualizar_temporada?id={{s.id}}">{{s.titulo}}</a></td></tr></table>
+		</div>
+	</div>
+	<div id="no-series" ng-hide="dataLoaded && (empezadas.length > 0 || pendientes.length > 0 || terminadas.length > 0)">
+		Actualmente no tiene ninguna serie añadida a su lista, acceda <a href="index.html#!/buscar_serie">aquí</a> para añadir su primera serie.
+	</div>
+	<div id="banner"><img src="https://www.webpagefx.com/blog/wp-content/uploads/2015/12/ibm-cognitive-era-banner.png"/></div>
+</div>

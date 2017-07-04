@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class EpVisualizadoUsuario {
 
@@ -19,11 +21,12 @@ public class EpVisualizadoUsuario {
 	private Set<Episodio> episodiosVisualizados;
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
+	@JsonIgnore
 	private Usuario usuario;
 	
 	public EpVisualizadoUsuario(){}
-	public EpVisualizadoUsuario(int id, Serie serie){
-		this.id = id;
+	public EpVisualizadoUsuario(Usuario usuario, Serie serie){
+		this.usuario = usuario;
 		this.serie = serie;
 		episodiosVisualizados = new HashSet<Episodio>();
 	}
@@ -52,20 +55,16 @@ public class EpVisualizadoUsuario {
 		this.usuario = usuario;
 	}
 	
-	public void addEpisodio(Episodio episodio){
-		episodiosVisualizados.add(episodio);
-	}
-	
-	public boolean eliminarEpisodio(Episodio episodio){
-		return episodiosVisualizados.remove(episodio);
-	}
-	
 	public Set<Episodio> getEpisodiosVisualizados(){
 		return episodiosVisualizados;
 	}
 	
 	public void setEpisodiosVisualizados(Set<Episodio> eps){
 		episodiosVisualizados = eps;
+	}
+	
+	public boolean addEpisodioVisualizado(Episodio ep){
+		return episodiosVisualizados.add(ep);
 	}
 	
 	@Override

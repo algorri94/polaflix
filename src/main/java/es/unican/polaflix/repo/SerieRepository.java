@@ -11,10 +11,14 @@ import es.unican.polaflix.domain.Serie;
 public interface SerieRepository extends Repository<Serie, Integer>{
 	
 	@Query("SELECT s FROM Serie s where s.titulo LIKE CONCAT(:letter,'%')")
-	List<Serie> findSerieByNameFirstLetter(@Param("letter") String letter);
+	List<Serie> findByTituloFirstLetter(@Param("letter") String letter);
 	
 	@Query("SELECT s FROM Serie s where s.titulo LIKE CONCAT('%',:name,'%')")
-	List<Serie> findSerieByName(@Param("name") String name);
+	List<Serie> findWithTitulo(@Param("name") String name);
+	
+	Serie findByTitulo(String name);
 	
 	Serie findById(int id);
+	
+	boolean save(Serie s);
 }

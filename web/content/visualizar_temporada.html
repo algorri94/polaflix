@@ -1,0 +1,39 @@
+<div ng-controller="TempController as ctrl">
+	<div id="temporada-header" class="title-header">
+		<a href="" ng-click="ctrl.changeSeason(tempActual.numTemporada-1)"><i class="material-icons" style="font-size:36px">navigate_before</i></a>
+		<div id="temporada" class="title">{{serie.titulo}} - Temporada {{tempActual.numTemporada}}</div>
+		<a href="" ng-click="ctrl.changeSeason(tempActual.numTemporada+1)"><i class="material-icons" style="font-size:36px">navigate_next</i></a>
+		<div class="tiposerie {{tipoSerie.toLowerCase()}}">{{tipoSerie}}</div>
+	</div>
+		<div id="episodios" ng-show="dataLoaded && dataLoaded2">
+		<table>
+			<tr ng-repeat="ep in tempActual.episodios | orderBy: 'numEpisodio'">
+				<td><a href="" ng-click="ctrl.verDescripcion(ep)">E{{ctrl.formatNumber(ep.numEpisodio)}}. {{ep.titulo}}</a></td>
+				<td><a href="" ng-click="ctrl.verEpisodio(ep.numEpisodio,ep.titulo)">Ver</a></td>
+				<td><i class="material-icons" style="font-size:36px" ng-class="(ctrl.episodeSeen(ep.id)) ? 'visto' : ''">remove_red_eye</i></td>
+			</tr>
+		</table>
+	</div>
+	<div class="overlay" ng-show="popup" ng-click="ctrl.closePopup()"></div>
+	<div class="popup" ng-show="popup">
+		<div class="popup-header">
+			<div class="popup-title">{{currentEpisode}}</div>
+			<div class="popup-close"><a href="" ng-click="ctrl.closePopup()"><i class="material-icons">close</i></a></div></div>
+		<div class="popup-content">
+			<div class="search-bar">
+				<div class="fakevideo"></div>
+			</div>
+		</div>
+	</div>
+	<div class="overlay" ng-show="desc" ng-click="ctrl.closeDesc()"></div>
+	<div class="popup" ng-show="desc">
+		<div class="popup-header">
+			<div class="popup-title">{{currentEpisode}}</div>
+			<div class="popup-close"><a href="" ng-click="ctrl.closeDesc()"><i class="material-icons">close</i></a></div></div>
+		<div class="popup-content">
+			<div class="justify">
+				{{currentDesc}}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,9 +1,11 @@
 package es.unican.polaflix.domain;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Factura implements Comparable<Factura>{
@@ -15,15 +17,16 @@ public class Factura implements Comparable<Factura>{
 	private int year;
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
+	@JsonIgnore
 	private Usuario usuario;
 	@OneToMany(mappedBy="factura")
-	private Set<FacturaEpisodio> episodios;
+	private List<FacturaEpisodio> episodios;
 	
 	public Factura(){}
 	public Factura(int mes, Usuario usuario){
 		this.mes = mes;
 		this.usuario = usuario;
-		episodios = new HashSet<FacturaEpisodio>();
+		episodios = new ArrayList<FacturaEpisodio>();
 	}
 	
 	public int getId() {
@@ -58,22 +61,22 @@ public class Factura implements Comparable<Factura>{
 		this.usuario = usuario;
 	}
 	
-	public void addEpisodio(FacturaEpisodio ep){
-		episodios.add(ep);
-	}
-	
-	public boolean removeEpisodio(FacturaEpisodio ep){
-		return episodios.remove(ep);
-	}
-	
-	public Set<FacturaEpisodio> getEpisodios(){
+	public List<FacturaEpisodio> getEpisodios(){
 		return episodios;
+	}
+	
+	public void setEpisodios(List<FacturaEpisodio> episodios){
+		this.episodios = episodios;
+	}
+	
+	public boolean addEpisodio(FacturaEpisodio fe){
+		return episodios.add(fe);
 	}
 	
 	@Override
 	public boolean equals(Object o){
 		Factura f = (Factura)o;
-		return f.getMes()==mes && usuario.equals(f.getUsuario());
+		return f.getYear() == year && f.getMes()==mes && usuario.equals(f.getUsuario());
 	}
 	
 	@Override

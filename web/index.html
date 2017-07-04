@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  	<script src="polaflix.inicio.js"></script>
+  	<script src="polaflix.serie.js"></script>
+  	<script src="polaflix.factura.js"></script>
+  	<script src="polaflix.temporada.js"></script>
+  	<script src="polaflix.config.js"></script>	
+  	<link rel="stylesheet" type="text/css" href="stylesheet.css" >	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Polaflix</title>
+</head>
+<body ng-app="polaflix">
+<div id="header">
+	<div id="logo"><img class="icon" src="http://www.freeiconspng.com/uploads/movie-icon-13.png"/></div>
+	<div id="welcome">Bienvenido a Polaflix</div>
+	<div id="usuario"><img class="icon" src="http://orig03.deviantart.net/9e7f/f/2014/016/b/a/android_kitkat_user_icon_by_pixeldoesmc-d72g1lf.png"/></div>
+</div>
+<div id="menu"><p><a href="#!/">Inicio</a>&nbsp;|&nbsp;<a href="#!/buscar_serie">Series</a>&nbsp;|&nbsp;<a href="#!/ver_facturas">Facturas</a></p></div>
+<div id="content" ng-view></div>
+</body>
+</html>

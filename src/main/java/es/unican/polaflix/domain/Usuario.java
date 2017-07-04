@@ -80,8 +80,12 @@ public abstract class Usuario {
 		return seriesTerminadas;
 	}
 	
-	public void addSeriePendiente(Serie serie){
-		seriesPendientes.add(serie);
+	public void setSeriesTerminadas(Set<Serie> seriesTerminadas){
+		this.seriesTerminadas = seriesTerminadas;
+	}
+	
+	public boolean addSeriePendiente(Serie serie){
+		return seriesPendientes.add(serie);
 	}
 	
 	public boolean removeSeriePendiente(Serie serie){
@@ -92,8 +96,12 @@ public abstract class Usuario {
 		return seriesPendientes;
 	}
 	
-	public void addFactura(Factura factura){
-		facturas.add(factura);
+	public void setSeriesPendientes(Set<Serie> seriesPendientes){
+		this.seriesPendientes = seriesPendientes;
+	}
+	
+	public boolean addFactura(Factura factura){
+		return facturas.add(factura);
 	}
 	
 	public boolean removeFactura(Factura factura){
@@ -104,8 +112,12 @@ public abstract class Usuario {
 		return facturas;
 	}
 	
-	public void addEpisodioVisualizado(EpVisualizadoUsuario evu){
-		seriesEmpezadas.add(evu);
+	public void setFacturas(Set<Factura> facturas){
+		this.facturas = facturas;
+	}
+	
+	public boolean addEpisodioVisualizado(EpVisualizadoUsuario evu){
+		return seriesEmpezadas.add(evu);
 	}
 	
 	public boolean removeEpisodioVisualizado(EpVisualizadoUsuario evu){
@@ -114,6 +126,10 @@ public abstract class Usuario {
 	
 	public Set<EpVisualizadoUsuario> getSeriesEmpezadas(){
 		return seriesEmpezadas;
+	}
+	
+	public void setSeriesEmpezadas(Set<EpVisualizadoUsuario> seriesEmpezadas){
+		this.seriesEmpezadas = seriesEmpezadas;
 	}
 	
 	@Override

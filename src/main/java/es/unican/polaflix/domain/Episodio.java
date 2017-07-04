@@ -2,6 +2,8 @@ package es.unican.polaflix.domain;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Episodio implements Comparable<Episodio>{
 
@@ -13,6 +15,7 @@ public class Episodio implements Comparable<Episodio>{
 	private int numEpisodio;
 	@ManyToOne
 	@JoinColumn(name = "temporada_id")
+	@JsonIgnore
 	private Temporada temporada;
 	
 	public Episodio(){}

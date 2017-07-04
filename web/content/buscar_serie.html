@@ -1,0 +1,37 @@
+<div ng-controller="SeriesController as ctrl">
+<div id="search-bar" class="search-bar">
+	<div id="iniciales" class="iniciales">
+		<span ng-repeat="entry in initials">
+			<a href="" ng-class="(entry.active) ? 'filter-active' : ''" ng-click="ctrl.onInitialClicked(entry.id)">{{entry.initial}}</a>
+			<span ng-hide="$last"> | </span>
+		</span>
+	</div>
+	<div id="busqueda" class="busqueda">
+		<input type="text" name="search" placeholder="Buscar..." ng-model="searchText">
+	</div>
+</div>
+<div id="lista-series" class="series">
+	<table ng-show="dataLoaded">
+	<tr ng-repeat="s in series | filter: ctrl.hasInitial() | filter: ctrl.busqueda() | orderBy: 'titulo'">
+		<td><a href="" ng-click="ctrl.verDescripcion(s)">{{s.titulo}}</a></td>
+		<td class="add"><a href="" ng-click="ctrl.addPendiente(usuario,s.id)"><i class="material-icons" style="font-size:36px">add</i></a></td>
+	</tr>
+</table>
+</div>
+<div class="overlay" ng-show="popup" ng-click="ctrl.closePopup()"></div>
+<div class="popup" ng-show="popup">
+	<div class="popup-header">
+		<div class="popup-title">{{currentSerie.titulo}}</div>
+		<div class="popup-close"><a href="" ng-click="ctrl.closePopup()"><i class="material-icons">close</i></a></div></div>
+	<div class="popup-content">
+		<div>Descripción</div>
+		<div class="search-bar desc justify">{{currentSerie.descripcion}}</div>
+		<p/>
+		<div ng-show="directores.length > 0">Directores</div>
+		<div class="desc justify"><span ng-repeat="d in directores">{{d.nombre}} {{d.apellido}}<span ng-hide="$last">, </span></span></div>
+		<p/>
+		<div ng-show="actores.length > 0">Actores</div>
+		<div class="desc justify"><span ng-repeat="d in actores">{{d.nombre}} {{d.apellido}}<span ng-hide="$last">, </span></span></div>
+	</div>
+</div>
+</div>
