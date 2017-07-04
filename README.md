@@ -1,5 +1,11 @@
 # Polaflix
-
+## Instrucciones de uso
+1. Instalar MySQL y npm junto con nodejs
+2. Desplegar el servicio de Spring en un servidor de aplicaciones como Apache o utilizar Spring Boot en su defecto
+3. Ejecutar el servicio de Spring
+4. Ejecutar el script '*insertTestData.sql*' en la base de datos generada para insertar datos de prueba
+5. Ejecutar el script '*web/start_server.bat*' para ejecutar el frontend
+6. Acceder a la dirección '*<direccion IP del equipo/localhost>:8000/index.html#!/*'
 ## REST API
 ##### /series
 	GET: Obtiene la lista de todas las series
